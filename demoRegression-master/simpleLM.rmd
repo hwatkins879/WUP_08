@@ -38,8 +38,8 @@ abline(agemodel)
 summary.lm(agemodel)
 ```
 
-1.Neck--> ARsqrd:0.87, RST:43.91
-2.Age --> ARsqrd:0.55, RST:81.47
+1.Neck--> ARsqrd:0.87, RST:43.91  
+2.Age --> ARsqrd:0.55, RST:81.47  
 
 Plots on the simp graph are closer to the line than those on the agemodel graph, which displays its points far from it.
 
@@ -50,10 +50,10 @@ plot(WEIGHT~HEADLEN,data=bears)
 abline(headlenmodel)
 summary.lm(headlenmodel)
 ```
-Best to worst
-1. Neck       -->     ARsqrd:0.87,  RST:43.91
-2. Head length-->     ARsqrd:0.69, RST:67.81
-3. Age        -->     ARsrd: 0.55,  RST:81.47
+Best to worst  
+1. Neck       -->     ARsqrd:0.87,  RST:43.91  
+2. Head length-->     ARsqrd:0.69, RST:67.81  
+3. Age        -->     ARsrd: 0.55,  RST:81.47  
 
 The headlenmodel graph is superior to the agemodel graph, despite its dispersed plots. When the agemodel's adjusted R-squared is 0.55 and the adjusted R-squared is 0.69, it is better than the simps' adjusted R-squared of 0.87, but still not good enough.
 
@@ -64,11 +64,11 @@ plot(WEIGHT~HEADWTH,data=bears)
 abline(headwthmodel)
 summary.lm(headwthmodel)
 ```
-Best to worst
-1. Neck       -->   ARsqrd:0.87  RST:43.91
-2. Head length-->   ARsqrd:0.69  RST:67.81
-3. Head width -->   ARsqrd:0.60  RST:76.41
-4. Age        -->   ARsrd: 0.55  RST:81.47
+Best to worst  
+1. Neck       -->   ARsqrd:0.87  RST:43.91  
+2. Head length-->   ARsqrd:0.69  RST:67.81  
+3. Head width -->   ARsqrd:0.60  RST:76.41  
+4. Age        -->   ARsrd: 0.55  RST:81.47  
 
 headwthmodel would have a high Resdiual standard error of 76.41, being higher than agemodel's 81.47 but not low enough for headlenmodel's 67.81 Residual standard error.
 
@@ -81,11 +81,30 @@ summary.lm(lengthmodel)
 ```
 
 
-Best to worst
-1. Neck        -->   ARsqrd:0.87  RST:43.91
-2. Length      -->   ARsqrd:0.74  RST:61.83
-3. Head length -->   ARsqrd:0.69  RST:67.81
-4. Head width  -->   ARsqrd:0.60  RST:76.41
-5. Age         -->   ARsrd: 0.55  RST:81.47
+Best to worst  
+1. Neck        -->   ARsqrd:0.87  RST:43.91  
+2. Length      -->   ARsqrd:0.74  RST:61.83  
+3. Head length -->   ARsqrd:0.69  RST:67.81  
+4. Head width  -->   ARsqrd:0.60  RST:76.41  
+5. Age         -->   ARsrd: 0.55  RST:81.47  
 
 headlengthmodel has a ARsqrd of 0.69 being better than headlebnmodel's 0.60 but not better than simps'smodel of 0.87.
+
+## Model WEIGHT ~ CHEST
+```{r}
+chestmodel <- lm(WEIGHT~CHEST,data=bears)
+plot(WEIGHT~CHEST,data=bears)
+abline(chestmodel)
+summary.lm(chestmodel)
+```
+
+Best to worst
+1. Chest      -->   ARsqrd:0.92  RST:33.08  
+2. Neck       -->   ARsqrd:0.87  RST:43.91  
+3. Length     -->   ARsqrd:0.74  RST:61.83  
+4. Head length-->   ARsqrd:0.69  RST:67.81  
+5. Head width -->   ARsqrd:0.60  RST:76.41  
+6. Age        -->   ARsrd: 0.55  RST:81.47  
+
+With a very high Adjusted R Squared and a low Residual Standard Error, the Chest model is ranked as the best. This is demonstrated by the other plots on the chestmodel graph being near the line. The plots will become increasingly detached from the line drawn as we proceed from the worst to the best.
+
