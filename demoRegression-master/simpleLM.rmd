@@ -18,7 +18,7 @@ bears$SEX<- as.factor(bears$SEX)
 bears$MONTH<- as.factor(bears$MONTH)
 ```
 
-## Model WEIGHT ~ NECK  this is an example  
+## Model WEIGHT ~ NECK 
 
 ```{r}
 simp <- lm(WEIGHT~NECK,data=bears)
@@ -43,6 +43,19 @@ summary.lm(agemodel)
 
 Plots on the simp graph are closer to the line than those on the agemodel graph, which displays its points far from it.
 
+## Model WEIGHT ~ HEADLEN
+```{r}
+headlenmodel <- lm(WEIGHT~HEADLEN,data=bears)
+plot(WEIGHT~HEADLEN,data=bears)
+abline(headlenmodel)
+summary.lm(headlenmodel)
+```
+Best to worst
+1. Neck       -->     ARsqrd:0.87,  RST:43.91
+2. Head length-->     ARsqrd:0.69, RST:67.81
+3. Age        -->     ARsrd: 0.55,  RST:81.47
+
+The headlenmodel graph is superior to the agemodel graph, despite its dispersed plots. When the agemodel's adjusted R-squared is 0.55 and the adjusted R-squared is 0.69, it is better than the simps' adjusted R-squared of 0.87, but still not good enough.
 
 
 
